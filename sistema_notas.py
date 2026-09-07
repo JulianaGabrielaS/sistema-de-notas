@@ -1,22 +1,33 @@
 print('=== SISTEMA DE NOTAS ===')
 
+contador = 1
+soma = 0
+
 nome_aluno = input('Nome do Aluno: ')
-nota1 = float(input('Digite a primeira nota: '))
-nota2 = float(input('Digite a segunda nota: '))
-nota3 = float(input('Digite a terceira nota: '))
 
-if 0 <= nota1 <= 10 and 0 <= nota2 <= 10 and 0 <= nota3 <= 10:
-    media = (nota1 + nota2 + nota3) / 3
+while contador <= 3:
+    nota = float(input(f'Digite sua {contador}º nota: '))
 
-    print('=== RESULTADO ===')
-    print('Aluno: ', nome_aluno)
-    print('Média: ', media)
-
-    if media >= 6:
-        print('Situação: Aprovado.')
-    elif media >= 5:
-        print('Situação: Recuperação.')
+    if 0 <= nota <= 10:
+        soma += nota #Acrescenta a nota na soma
+        contador += 1
     else:
-        print('Situação: Reprovado.')
+        print('Nota inválida. Digite uma nota entre 0 e 10.') 
+
+media = soma / 3
+
+print('=== RESULTADO ===')
+print(f'Aluno: {nome_aluno}')
+print(f'Média: {media:.1f}')
+
+if media >= 6:
+    print('Situação: Aprovado.')
+elif media >= 5:
+    print('Situação: Recuperação.')
 else:
-    print('Nota inválida.')
+    print('Situação: Reprovado.')
+
+#próximas melhorias:
+# - validar o nome do aluno
+# - adicionar percentual de presença
+# - considerar nota + frequência na situação final
