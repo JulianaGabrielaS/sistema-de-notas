@@ -3,7 +3,12 @@ print('=== SISTEMA DE NOTAS ===')
 contador = 1
 soma = 0
 
-nome_aluno = input('Nome do Aluno: ')
+while True:
+    nome_aluno = input('Nome do Aluno: ').strip().upper()
+    if len(nome_aluno) >=3:
+        break
+    else:
+        print('Nome inválido. Digite pelo menos 3 caracteres.')
 
 while contador <= 3:
     nota = float(input(f'Digite sua {contador}º nota: '))
