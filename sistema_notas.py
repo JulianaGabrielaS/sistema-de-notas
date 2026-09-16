@@ -5,10 +5,10 @@ soma = 0
 
 while True:
     nome_aluno = input('Nome do Aluno: ').strip().upper()
-    if len(nome_aluno) >=3:
+    if len(nome_aluno) >=3 and nome_aluno.replace(' ', '').isalpha():
         break
     else:
-        print('Nome inválido. Digite pelo menos 3 caracteres.')
+        print('Nome inválido. Digite apenas letras.')
 
 while contador <= 3:
     nota = float(input(f'Digite sua {contador}º nota: '))
