@@ -43,7 +43,7 @@ while True:
         print('Opção inválida. Digite novamente.')
 
 # Frequência
-aulas_frequentadas = int(input(f'{nome_aluno}, quantas aulas você frequêntou? '))
+aulas_frequentadas = int(input(f'{nome_aluno}, quantas aulas você frequentou? '))
 
 frequencia = aulas_frequentadas / total_aula * 100
 
@@ -55,12 +55,16 @@ print(f'Aluno: {nome_aluno}')
 print(f'Média: {media:.1f}')
 print(f'Frequência: {frequencia:.1f}%')
 
-if media >= 6:
+if media >= 6 and frequencia >= 75:
     print('Situação: Aprovado.')
-elif media >= 5:
+elif media >= 6 and frequencia < 75:
+    print('Situação: Reprovado por frequência.')
+elif media >= 5 and frequencia >= 75:
     print('Situação: Recuperação.')
+elif media >= 5 and frequencia < 75:
+    print('Situação: Recuperação por nota e frequência.')
+elif media < 5 and frequencia >= 75:
+    print('Situação: Reprovado por nota.')
 else:
-    print('Situação: Reprovado.')
-    
-# próximas melhorias:
-# - considerar nota + frequência na situação final
+    print('Situação: Reprovado por nota e frequência.')
+
