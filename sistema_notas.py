@@ -1,4 +1,4 @@
-print('=== SISTEMA DE NOTAS ===')
+print('='*10,' SISTEMA DE NOTAS ', '='*10)
 
 contador = 1
 soma = 0
@@ -19,11 +19,41 @@ while contador <= 3:
     else:
         print('Nota inválida. Digite uma nota entre 0 e 10.') 
 
+print()
+#Menu de escolha de tipo de ensino
+print('='*10, 'TIPO DE ENSINO', '='*10)
+print('[1] Ensino Fundamental')
+print('[2] Ensino Médio')
+print('[3] Ensino Integral\n')
+
+#Validação da escolha
+while True:
+    escolha_ensino = int(input('Digite a opção: '))
+    # Total de aulas definido conforme a carga horária anual de cada modalidade.
+    if escolha_ensino == 1:
+        total_aula = 1200
+        break
+    elif escolha_ensino == 2:
+        total_aula = 1100
+        break
+    elif escolha_ensino == 3:
+        total_aula = 1500
+        break
+    else:
+        print('Opção inválida. Digite novamente.')
+
+# Frequência
+aulas_frequentadas = int(input(f'{nome_aluno}, quantas aulas você frequêntou? '))
+
+frequencia = aulas_frequentadas / total_aula * 100
+
 media = soma / 3
 
-print('=== RESULTADO ===')
+print()
+print('='*10, 'RESULTADO ', '='*10)
 print(f'Aluno: {nome_aluno}')
 print(f'Média: {media:.1f}')
+print(f'Frequência: {frequencia:.1f}%')
 
 if media >= 6:
     print('Situação: Aprovado.')
@@ -31,8 +61,6 @@ elif media >= 5:
     print('Situação: Recuperação.')
 else:
     print('Situação: Reprovado.')
-
-#próximas melhorias:
-# - validar o nome do aluno
-# - adicionar percentual de presença
+    
+# próximas melhorias:
 # - considerar nota + frequência na situação final
